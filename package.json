@@ -4,7 +4,8 @@
   "description": "A personal cloud storage drive",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon --env-file .env index.js"
   },
   "repository": {
     "type": "git",
@@ -22,6 +23,7 @@
     "express": "^4.21.2",
     "jsonwebtoken": "^9.0.2",
     "multer": "^1.4.5-lts.1",
+    "nodemon": "^3.1.9",
     "uuid": "^11.1.0"
   }
 }
