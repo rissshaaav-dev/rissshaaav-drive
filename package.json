@@ -1,0 +1,27 @@
+{
+  "name": "rissshaaav-drive",
+  "version": "1.0.0",
+  "description": "A personal cloud storage drive",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rissshaaav-dev/rissshaaav-drive.git"
+  },
+  "author": "https://github.com/rissshaaav-dev",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rissshaaav-dev/rissshaaav-drive/issues"
+  },
+  "homepage": "https://github.com/rissshaaav-dev/rissshaaav-drive#readme",
+  "dependencies": {
+    "aws-sdk": "^2.1692.0",
+    "axios": "^1.8.1",
+    "express": "^4.21.2",
+    "jsonwebtoken": "^9.0.2",
+    "multer": "^1.4.5-lts.1",
+    "uuid": "^11.1.0"
+  }
+}
