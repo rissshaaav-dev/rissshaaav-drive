@@ -1,6 +1,6 @@
 const { v4: uuidv4 } = require("uuid");
-const { PutCommand } = require("@aws-sdk/lib-dynamodb");
-const { dynamoDB } = require("../configs/dynamoDB.config");
+// const { PutCommand } = require("@aws-sdk/lib-dynamodb");
+const { dynamoDB, PutCommand } = require("../configs/dynamoDB.config");
 
 const uploadFiles = async (req, res) => {
   try {
@@ -17,11 +17,12 @@ const uploadFiles = async (req, res) => {
       const fileSize = file.size;
       const fileType = file.mimetype;
       const uploadDate = new Date().toISOString();
-      const s3Path = file.location; // S3 URL
+      // const s3Path = file.location; // S3 URL
+      const s3Path = file.key; // S3 URL
 
       // Save file metadata in DynamoDB
       const params = new PutCommand({
-        TableName: "rissshaaav.FileMetadata",
+        TableName: process.env.AWS_DYNAMODB_TABLE_NAME,
         Item: {
           fileId,
           userId,
