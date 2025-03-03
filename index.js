@@ -10,6 +10,7 @@ app.get('/', (req, res) => {
 
 app.use('/auth', require('./routes/auth.route'));
 app.use('/api', require('./routes/upload.route'));
+app.use('/api', require('./routes/file.route'));
 
 app.listen(process.env.PORT, () => {
   console.log(`Server is running on http://localhost:${process.env.PORT}`);
