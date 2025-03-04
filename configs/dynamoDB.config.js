@@ -1,4 +1,10 @@
-const { DynamoDBClient, QueryCommand, GetItemCommand } = require("@aws-sdk/client-dynamodb");
+const {
+  DynamoDBClient,
+  QueryCommand,
+  GetItemCommand,
+  DeleteItemCommand,
+  UpdateItemCommand,
+} = require("@aws-sdk/client-dynamodb");
 const { DynamoDBDocumentClient, PutCommand } = require("@aws-sdk/lib-dynamodb");
 
 const dynamoDBClient = new DynamoDBClient({
@@ -7,4 +13,11 @@ const dynamoDBClient = new DynamoDBClient({
 
 const dynamoDB = DynamoDBDocumentClient.from(dynamoDBClient);
 
-module.exports = { dynamoDB, PutCommand, QueryCommand, GetItemCommand };
+module.exports = {
+  dynamoDB,
+  PutCommand,
+  QueryCommand,
+  GetItemCommand,
+  DeleteItemCommand,
+  UpdateItemCommand,
+};
