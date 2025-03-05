@@ -10,10 +10,19 @@ const options = {
     },
     servers: [
       {
-        url: "http://localhost:${process.env.PORT}",
+        url: `http://localhost:${process.env.PORT}`,
         description: "Local server",
       },
     ],
+    components: {
+      securitySchemes: {
+        BearerAuth: {
+          type: "http",
+          scheme: "bearer",
+          bearerFormat: "JWT",
+        },
+      },
+    },
   },
   apis: ["./routes/*.js"], // Point this to where your routes are defined
 };

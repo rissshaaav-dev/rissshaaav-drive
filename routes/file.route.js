@@ -11,7 +11,7 @@ const fileRouter = express.Router();
 
 /**
  * @swagger
- * /files:
+ * /api/files:
  *   get:
  *     summary: List all files of the authenticated user
  *     description: Fetches all files belonging to the logged-in user from DynamoDB.
@@ -29,7 +29,7 @@ fileRouter.get("/files", authenticateUser, listUserFiles);
 
 /**
  * @swagger
- * /files/download/{fileId}:
+ * /api/files/download/{fileId}:
  *   get:
  *     summary: Get a signed URL for file download
  *     description: Generates a pre-signed URL for downloading a file.
@@ -56,7 +56,7 @@ fileRouter.get("/files/download/:fileId", authenticateUser, getFileDownloadUrl);
 
 /**
  * @swagger
- * /files/delete/{fileId}:
+ * /api/files/delete/{fileId}:
  *   delete:
  *     summary: Delete a file
  *     description: Deletes a file from S3 and removes its metadata from DynamoDB.
@@ -83,7 +83,7 @@ fileRouter.delete("/files/delete/:fileId", authenticateUser, deleteFile);
 
 /**
  * @swagger
- * /files/rename:
+ * /api/files/rename:
  *   put:
  *     summary: Rename a file
  *     description: Changes the filename while keeping it in the same folder.
