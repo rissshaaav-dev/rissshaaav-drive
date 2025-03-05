@@ -171,7 +171,7 @@ const renameFile = async (req, res) => {
     if (!fileExtension) {
       return res.status(500).json({ error: "Invalid file extension" });
     }
-    
+
     const folderPath = oldKey.substring(0, oldKey.lastIndexOf("/") + 1); // Keep folder structure
 
     const newKey = `${folderPath}${newFileName}.${fileExtension}`; // New key with same folder
@@ -200,9 +200,10 @@ const renameFile = async (req, res) => {
         userId: { S: userId },
         fileId: { S: fileId },
       },
-      UpdateExpression: "SET s3Path = :newKey",
+      UpdateExpression: "SET fileName = :newFileName, s3Path = :newKey",
       ExpressionAttributeValues: {
         ":newKey": { S: newKey },
+        ":newFileName": { S: newFileName },
       },
     };
     await dynamoDB.send(new UpdateItemCommand(updateParams));
